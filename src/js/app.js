@@ -1,7 +1,7 @@
 /**
- * Função que cria e renderiza a tabela a partir de um Objeto.
+ * Função que cria e renderiza a tabela a partir de um array de Objetos.
  * @author Sergio Segaty <sergio.segaty@gmail.com>
- * @param {List[Tarefas]} tarefas 
+ * @param {[Tarefa]} tarefas 
  * 
  * @version 1.0.0
  */
@@ -76,7 +76,6 @@ const tableRow = (tarefa) => {
     tr.append(tdAcao);
 
     return tr;
-
 }
 
 
@@ -114,7 +113,7 @@ const tableHead = (status, desc, data) => {
 
 
 /**
- * Função que cria e retorna o footer da tabela.
+ * Função que cria e retorna o footer da tabela com os Inputs inclusos.
  * @version 1.0.0
  */
 const tableFooter = () => {
