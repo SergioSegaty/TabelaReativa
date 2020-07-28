@@ -36,7 +36,7 @@ let addTask = () => {
     tableBody.append(tr);
 }
 
-// Cria a Linha de Tarefa, a partir de um objeto.
+// Cria a Linha da tabela, a partir de um objeto.
 
 const tableRow = (tarefa) => {
     tr = document.createElement('tr');

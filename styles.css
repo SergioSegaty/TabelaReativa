@@ -26,6 +26,11 @@ header {
     margin-bottom: 25px;
 }
 
+thead tr {
+    height: 50px;
+    border-radius: 3px;
+}
+
 header div {
     margin: 5px 10px;
 }
@@ -96,6 +101,7 @@ th {
 
 .btn-danger {
     background-color: #d31515;
+    color: white;
 }
 
 .btn-danger:hover {
@@ -103,7 +109,8 @@ th {
 }
 
 .btn-primmary {
-    background-color: #09c240
+    background-color: #09c240;
+    color: white;
 }
 
 .btn-primmary:hover {
