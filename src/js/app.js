@@ -1,5 +1,10 @@
-// Função que cria e renderiza a tabela a partir de um Objeto.
-
+/**
+ * Função que cria e renderiza a tabela a partir de um Objeto.
+ * @author Sergio Segaty <sergio.segaty@gmail.com>
+ * @param {List[Tarefas]} tarefas 
+ * 
+ * @version 1.0.0
+ */
 var renderTable = (tarefas) => {
     const eleTable = document.createElement('table');
 
@@ -22,9 +27,12 @@ var renderTable = (tarefas) => {
     main.append(eleTable);
 }
 
-// Função que cria uma nova tarefa a partir dos inputs do Footer.
-// Adiciona ela no Body da Tabela.
 
+/**
+ * Função que cria uma nova tarefa a partir dos inputs do Footer.
+ * Adiciona ela no Body da Tabela.
+ * @version 1.0.0
+ */
 let addTask = () => {
     inputStatus = document.getElementById('inputStatus').value;
     inputDesc = document.getElementById('inputDesc').value;
@@ -36,8 +44,11 @@ let addTask = () => {
     tableBody.append(tr);
 }
 
-// Cria a Linha da tabela, a partir de um objeto.
-
+/**
+ * Cria a Linha da tabela, a partir de um objeto.
+ * @param {Tarefa} tarefa 
+ * @version 1.0.0
+ */
 const tableRow = (tarefa) => {
     tr = document.createElement('tr');
 
@@ -68,9 +79,15 @@ const tableRow = (tarefa) => {
 
 }
 
-// Cria o Elemento tHead e seus filhos. 
-// Precisa dos parametros que ficarão como cabeçalhos.
 
+/**
+ * Cria o Elemento tHead e seus filhos.
+ * Precisa dos parametros que ficarão como cabeçalhos.
+ * @param {String} status   
+ * @param {String} desc 
+ * @param {String} data 
+ * @version 1.0.0
+ */
 const tableHead = (status, desc, data) => {
 
     const tableHead = document.createElement('thead');
@@ -95,8 +112,11 @@ const tableHead = (status, desc, data) => {
     return tableHead;
 }
 
-// Função que cria e retorna o footer da tabela.
 
+/**
+ * Função que cria e retorna o footer da tabela.
+ * @version 1.0.0
+ */
 const tableFooter = () => {
     const tableFoot = document.createElement('tfoot');
     let tr = document.createElement('tr');
