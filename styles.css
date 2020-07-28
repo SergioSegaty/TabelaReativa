@@ -74,6 +74,10 @@ table {
     min-width: 500px;
 }
 
+table td {
+    border: 1px solid black;
+}
+
 table input[type=text] {
     text-align: center;
 }
@@ -84,7 +88,6 @@ tfoot td {
 
 td,
 th {
-    border: 1px solid black;
     box-sizing: border-box;
 }
 
