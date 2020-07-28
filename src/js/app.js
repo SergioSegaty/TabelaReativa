@@ -48,6 +48,7 @@ let addTask = () => {
  * Cria a Linha da tabela, a partir de um objeto.
  * @param {Tarefa} tarefa 
  * @version 1.0.0
+ * @returns DOM.Element(Table Row)
  */
 const tableRow = (tarefa) => {
     tr = document.createElement('tr');
@@ -86,6 +87,7 @@ const tableRow = (tarefa) => {
  * @param {String} desc 
  * @param {String} data 
  * @version 1.0.0
+ * @returns DOM.Element(Table Head)
  */
 const tableHead = (status, desc, data) => {
 
@@ -115,6 +117,7 @@ const tableHead = (status, desc, data) => {
 /**
  * Função que cria e retorna o footer da tabela com os Inputs inclusos.
  * @version 1.0.0
+ * @returns DOM.Element(Table Footer)
  */
 const tableFooter = () => {
     const tableFoot = document.createElement('tfoot');
