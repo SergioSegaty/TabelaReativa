@@ -1,3 +1,5 @@
+// Função que cria e renderiza a tabela a partir de um Objeto.
+
 var renderTable = (tarefas) => {
     const eleTable = document.createElement('table');
 
@@ -20,7 +22,10 @@ var renderTable = (tarefas) => {
     main.append(eleTable);
 }
 
-let AdicionarTarefa = () => {
+// Função que cria uma nova tarefa a partir dos inputs do Footer.
+// Adiciona ela no Body da Tabela.
+
+let addTask = () => {
     inputStatus = document.getElementById('inputStatus').value;
     inputDesc = document.getElementById('inputDesc').value;
     inputData = document.getElementById('inputData').value;
@@ -29,10 +34,10 @@ let AdicionarTarefa = () => {
 
     tableBody = document.getElementById('tbody');
     tableBody.append(tr);
-
 }
 
 // Cria a Linha de Tarefa, a partir de um objeto.
+
 const tableRow = (tarefa) => {
     tr = document.createElement('tr');
 
@@ -90,6 +95,8 @@ const tableHead = (status, desc, data) => {
     return tableHead;
 }
 
+// Função que cria e retorna o footer da tabela.
+
 const tableFooter = () => {
     const tableFoot = document.createElement('tfoot');
     let tr = document.createElement('tr');
@@ -120,7 +127,7 @@ const tableFooter = () => {
     let btnAdd = document.createElement('button');
     btnAdd.innerHTML = 'Adicionar';
     btnAdd.className += 'btn btn-primmary';
-    btnAdd.addEventListener('click', () => AdicionarTarefa())
+    btnAdd.addEventListener('click', () => addTask())
     tdAcao.append(btnAdd);
 
     tableFoot.append(tdStatus);
