@@ -1,10 +1,12 @@
+let tb;
 /**
  * Função que cria e renderiza a tabela a partir de um array de Objetos.
  * @author Sergio Segaty <sergio.segaty@gmail.com>
  * @param {[Tarefa]} tarefas 
  * @returns {HTMLElement}
- * @version 1.0.0
+ * @version 2.1.0
  */
+
 var renderTable = (tarefas) => {
     const eleTable = document.createElement('table');
 
@@ -12,20 +14,20 @@ var renderTable = (tarefas) => {
     tf = tableFooter();
     eleTable.append(th);
 
-    const tableBody = document.createElement('tbody');
-    tableBody.setAttribute('id', 'tbody');
+    tb = document.createElement('tbody');
+    tb.setAttribute('id', 'tbody');
 
     if (tarefas.length > 1) {
         tarefas.forEach((tarefa) => {
 
             tr = tableRow(tarefa);
-            tableBody.append(tr);
+            tb.append(tr);
         })
     } else {
         tr = tableRow(tarefas);
-        tableBody.append(tr);
+        tb.append(tr);
     }
-    eleTable.append(tableBody);
+    eleTable.append(tb);
     eleTable.append(tf);
 
     return eleTable;
@@ -36,9 +38,9 @@ var renderTable = (tarefas) => {
  * Função que cria uma nova tarefa a partir dos inputs do Footer.
  * Adiciona ela no Body da Tabela.
  * 
- * @version 1.0.0
+ * @version 2.1.0
  */
-let addTask = (tableBody, tarefa) => {
+let addTask = (targetTableBody, tarefa) => {
     let novaTarefa;
     let validation;
     let inputStatus;
@@ -62,8 +64,7 @@ let addTask = (tableBody, tarefa) => {
     }
 
     tr = tableRow(novaTarefa);
-
-    tableBody.append(tr);
+    targetTableBody.append(tr);
 
     return validation;
 }
@@ -72,7 +73,7 @@ let addTask = (tableBody, tarefa) => {
  * Cria a Linha da tabela, a partir de um objeto.
  * @param {Tarefa} tarefa 
  * 
- * @version 1.0.0
+ * @version 2.1.0
  * 
  * @returns {HTMLTableSectionElement}
  */
@@ -179,7 +180,7 @@ const tableFooter = () => {
     let btnAdd = document.createElement('button');
     btnAdd.innerHTML = 'Adicionar';
     btnAdd.className += 'btn btn-primmary';
-    btnAdd.addEventListener('click', () => addTask(tableBody, novaTarefa));
+    btnAdd.addEventListener('click', () => addTask(tb));
     tdAcao.append(btnAdd);
 
     tableFoot.append(tdStatus);
