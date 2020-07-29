@@ -1,6 +1,8 @@
 /**
  * Cria o ambiente de teste.
  * @returns {HTMLElement} 
+ * @version 1.0.0
+ * @author Sérgio Segaty <sergio.segaty@gmail.com>
  */
 
 const testingEnvoirement = () => {
@@ -14,6 +16,7 @@ const testingEnvoirement = () => {
 /**
  * Testa a integração das outras funções e checa para ver se renderizou
  * a tabela de maneira correta comparando com um mock de OuterHTML.
+ * @version 1.5.0
  */
 const testRenderTable = () => {
         console.log('Teste de Integração - Render Table');
@@ -44,6 +47,7 @@ const testRenderTable = () => {
 //#region Teste de Unidade
 /**
  * Testa a função que renderiza o TableHead e compara com um mock de outerHTML.
+ * @version 1.5.0
  */
 const testRenderHead = () => {
     console.log('Teste de Unidade - Render TableHead');
@@ -62,6 +66,7 @@ const testRenderHead = () => {
 
 /**
  * Testa a função que renderiza o TableFooter e compara com um mock de outerHTML.
+ * @version 1.5.0
  */
 const testRenderFooter = () => {
     console.log('Teste de Unidade - Render TableFooter');
@@ -84,6 +89,7 @@ const testRenderFooter = () => {
 
 /**
  * Testa a função que renderiza o TableRow e compara com um mock de outerHTML.
+ * @version 1.5.0
  */
 const testRenderRow = () => {
     console.log('Teste de Unidade - Render TableRow');
@@ -103,11 +109,11 @@ const testRenderRow = () => {
 
     console.log('-----------');
 };
-//#endregion
 
 /**
  * Testa a função de adicionar uma nova Tarefa. 
  * Se a validação voltar com erro, ele não adiciona uma nova tarefa e avisa os erros na validação.
+ * @version 1.5.0
  */
 const testeAddTask = () => {
     console.log('Teste de Unidade - AddTask');
@@ -121,7 +127,7 @@ const testeAddTask = () => {
         console.log('Validação sucedida. Verificando funcionamento do metodo.');
 
         if (mockTableBody.childNodes.length > 0) {
-            console.log('Tarefa adicionada com sucesso.');
+            console.log('Sucesso! Tarefa adicionada com sucesso.');
         } else {
             console.log('Erro, não foi possível adicionar a Tarefa');
         }
@@ -136,6 +142,7 @@ const testeAddTask = () => {
 
     console.log('-----------');
 };
+//#endregion
 
 const runTests = () => {
     testRenderHead();
