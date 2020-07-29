@@ -4,7 +4,7 @@
     overflow-x: hidden;
 }
 
-.main {
+#main {
     height: 100vh;
     width: 100%;
     display: flex;
@@ -124,7 +124,7 @@ th {
 }
 
 @media(min-width: 700px) {
-    .main {
+    #main {
         justify-content: flex-start;
         align-items: center;
     }
