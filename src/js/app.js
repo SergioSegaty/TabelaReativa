@@ -2,7 +2,7 @@
  * Função que cria e renderiza a tabela a partir de um array de Objetos.
  * @author Sergio Segaty <sergio.segaty@gmail.com>
  * @param {[Tarefa]} tarefas 
- * 
+ * @returns {HTMLElement}
  * @version 1.0.0
  */
 var renderTable = (tarefas) => {
@@ -14,41 +14,54 @@ var renderTable = (tarefas) => {
 
     const tableBody = document.createElement('tbody');
     tableBody.setAttribute('id', 'tbody');
-    tarefas.forEach((tarefa) => {
 
-        tr = tableRow(tarefa);
+    if (tarefas.length > 1) {
+        tarefas.forEach((tarefa) => {
+
+            tr = tableRow(tarefa);
+            tableBody.append(tr);
+        })
+    } else {
+        tr = tableRow(tarefas);
         tableBody.append(tr);
-    })
+    }
     eleTable.append(tableBody);
     eleTable.append(tf);
 
-    let main = document.querySelector('.main');
-
-    main.append(eleTable);
+    return eleTable;
 }
 
 
 /**
  * Função que cria uma nova tarefa a partir dos inputs do Footer.
  * Adiciona ela no Body da Tabela.
+ * 
  * @version 1.0.0
  */
-let addTask = () => {
+let addTask = (tableBody) => {
     inputStatus = document.getElementById('inputStatus').value;
     inputDesc = document.getElementById('inputDesc').value;
     inputData = document.getElementById('inputData').value;
     novaTarefa = new Tarefa(inputDesc, inputStatus, inputData);
+
+    var validation = validateModelTarefa(novaTarefa);
+    if (!validation.valid) {
+        alert(validation.message);
+        return;
+    }
+
     tr = tableRow(novaTarefa);
 
-    tableBody = document.getElementById('tbody');
     tableBody.append(tr);
 }
 
 /**
  * Cria a Linha da tabela, a partir de um objeto.
  * @param {Tarefa} tarefa 
+ * 
  * @version 1.0.0
- * @returns DOM.Element(Table Row)
+ * 
+ * @returns {HTMLTableSectionElement}
  */
 const tableRow = (tarefa) => {
     tr = document.createElement('tr');
@@ -83,13 +96,15 @@ const tableRow = (tarefa) => {
 /**
  * Cria o Elemento tHead e seus filhos.
  * Precisa dos parametros que ficarão como cabeçalhos.
- * @param {String} status   
  * @param {String} desc 
+ * @param {String} status   
  * @param {String} data 
+ * 
  * @version 1.0.0
- * @returns DOM.Element(Table Head)
+ * 
+ * @returns {HTMLTableSectionElement}
  */
-const tableHead = (status, desc, data) => {
+var tableHead = (desc, status, data) => {
 
     const tableHead = document.createElement('thead');
     const tr = document.createElement('tr');
@@ -116,8 +131,10 @@ const tableHead = (status, desc, data) => {
 
 /**
  * Função que cria e retorna o footer da tabela com os Inputs inclusos.
+ * 
  * @version 1.0.0
- * @returns DOM.Element(Table Footer)
+ * 
+ * @returns {HTMLTableSectionElement}
  */
 const tableFooter = () => {
     const tableFoot = document.createElement('tfoot');
