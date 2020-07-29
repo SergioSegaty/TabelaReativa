@@ -47,3 +47,26 @@ const getTarefas = () => {
 
     return listTarefas;
 }
+
+const validateModelTarefa = (tarefa) => {
+    let msg = [];
+    let bool = true;
+
+    if (tarefa.descricao.length < 1) {
+        msg += "Descrição não informada. \n";
+        bool = false;
+    }
+    if (tarefa.data.length < 1) {
+        msg += "Data não informada. \n";
+        bool = false;
+    }
+    if (tarefa.status.length < 1) {
+        msg += "Status não informado. \n";
+        bool = false;
+    }
+
+    return {
+        valid: bool,
+        message: msg
+    }
+}
