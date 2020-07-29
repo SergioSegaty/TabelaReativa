@@ -6,7 +6,10 @@
  */
 var DrawTable = () => {
     var listaTarefas = getTarefas();
-    renderTable(listaTarefas);
+
+    let main = document.querySelector('#main');
+
+    main.append(renderTable(listaTarefas));
 }
 
-DrawTable();
+// DrawTable();
