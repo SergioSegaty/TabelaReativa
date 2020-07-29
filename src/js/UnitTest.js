@@ -10,6 +10,10 @@ const testingEnvoirement = () => {
     return main;
 };
 
+/**
+ * Testa a integração das outras funções e checa para ver se renderizou
+ * a tabela de maneira correta comparando com um mock de OuterHTML.
+ */
 const testRenderTable = () => {
     console.log('Teste de Integração - Render Table');
     let main = testingEnvoirement();
@@ -36,7 +40,7 @@ const testRenderTable = () => {
 }
 
 /**
- * Cria uma string de OuterHTML para comparar com a TableHeader que retorna do método.
+ * Testa a função que renderiza o TableHead e compara com um mock de outerHTML.
  */
 const testRenderHead = () => {
     console.log('Teste de Unidade - Render TableHead');
@@ -53,7 +57,7 @@ const testRenderHead = () => {
 }
 
 /**
- * Cria uma string de OuterHTML para comparar com a TableFooter que retorna do método.
+ * Testa a função que renderiza o TableFooter e compara com um mock de outerHTML.
  */
 const testRenderFooter = () => {
     console.log('Teste de Unidade - Render TableFooter');
@@ -73,6 +77,9 @@ const testRenderFooter = () => {
     console.log('-----------');
 }
 
+/**
+ * Testa a função que renderiza o TableRow e compara com um mock de outerHTML.
+ */
 const testRenderRow = () => {
     console.log('Teste de Unidade - Render TableRow');
 
@@ -95,8 +102,6 @@ const runTests = () => {
     testRenderRow();
     testRenderFooter();
     testRenderTable();
-
-
 }
 
 
