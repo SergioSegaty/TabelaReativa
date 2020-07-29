@@ -38,21 +38,34 @@ var renderTable = (tarefas) => {
  * 
  * @version 1.0.0
  */
-let addTask = (tableBody) => {
-    inputStatus = document.getElementById('inputStatus').value;
-    inputDesc = document.getElementById('inputDesc').value;
-    inputData = document.getElementById('inputData').value;
-    novaTarefa = new Tarefa(inputDesc, inputStatus, inputData);
+let addTask = (tableBody, tarefa) => {
+    let novaTarefa;
+    let validation;
+    let inputStatus;
+    let inputDesc;
+    let inputData;
 
-    var validation = validateModelTarefa(novaTarefa);
+    if (!tarefa) {
+        inputStatus = document.getElementById('inputStatus').value;
+        inputDesc = document.getElementById('inputDesc').value;
+        inputData = document.getElementById('inputData').value;
+        novaTarefa = new Tarefa(inputDesc, inputStatus, inputData);
+
+    } else {
+        novaTarefa = new Tarefa(tarefa.descricao, tarefa.status, tarefa.data)
+    }
+
+    validation = validateModelTarefa(novaTarefa);
     if (!validation.valid) {
         alert(validation.message);
-        return;
+        return validation;
     }
 
     tr = tableRow(novaTarefa);
 
     tableBody.append(tr);
+
+    return validation;
 }
 
 /**
@@ -166,7 +179,7 @@ const tableFooter = () => {
     let btnAdd = document.createElement('button');
     btnAdd.innerHTML = 'Adicionar';
     btnAdd.className += 'btn btn-primmary';
-    btnAdd.addEventListener('click', () => addTask())
+    btnAdd.addEventListener('click', () => addTask(tableBody, novaTarefa));
     tdAcao.append(btnAdd);
 
     tableFoot.append(tdStatus);
