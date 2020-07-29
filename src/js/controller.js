@@ -12,4 +12,4 @@ var DrawTable = () => {
     main.append(renderTable(listaTarefas));
 }
 
-// DrawTable();
+DrawTable();
