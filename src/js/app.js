@@ -1,4 +1,3 @@
-let tb;
 /**
  * Função que cria e renderiza a tabela a partir de um array de Objetos.
  * @author Sergio Segaty <sergio.segaty@gmail.com>
@@ -6,6 +5,11 @@ let tb;
  * @returns {HTMLElement}
  * @version 2.1.0
  */
+
+var deleteTable = () => {
+    let table = document.querySelector('table');
+    table.remove();
+}
 
 var renderTable = (tarefas) => {
     const eleTable = document.createElement('table');
@@ -40,7 +44,7 @@ var renderTable = (tarefas) => {
  * 
  * @version 2.1.0
  */
-let addTask = (targetTableBody, tarefa) => {
+const addTask = (targetTableBody, tarefa) => {
     let novaTarefa;
     let validation;
     let inputStatus;
@@ -63,10 +67,23 @@ let addTask = (targetTableBody, tarefa) => {
         return validation;
     }
 
+    let tb = document.getElementById(targetTableBody);
+
     tr = tableRow(novaTarefa);
-    targetTableBody.append(tr);
+    tb.append(tr);
+    addToTable(novaTarefa);
 
     return validation;
+}
+
+const removeTask = (e) => {
+    let tr = (e.target.parentNode).parentNode;
+
+    let id = (tr.getAttribute('id'));
+
+    (e.target.parentNode).parentNode.remove();
+
+    removeFromTable(id);
 }
 
 /**
@@ -92,11 +109,11 @@ const tableRow = (tarefa) => {
     btnExcluir = document.createElement('button');
     btnExcluir.className += 'btn btn-danger';
     btnExcluir.innerHTML = "Excluir";
-    btnExcluir.addEventListener('click', (e) => {
-        ((e.target.parentNode).parentNode).remove();
-    });
+    btnExcluir.addEventListener('click', (e) => removeTask(e));
 
     tdAcao.append(btnExcluir);
+
+    tr.setAttribute('id', tarefa.id);
 
     tr.append(tdStatus);
     tr.append(tdDesc);
@@ -180,7 +197,7 @@ const tableFooter = () => {
     let btnAdd = document.createElement('button');
     btnAdd.innerHTML = 'Adicionar';
     btnAdd.className += 'btn btn-primmary';
-    btnAdd.addEventListener('click', () => addTask(tb));
+    btnAdd.addEventListener('click', () => addTask('tbody'));
     tdAcao.append(btnAdd);
 
     tableFoot.append(tdStatus);
