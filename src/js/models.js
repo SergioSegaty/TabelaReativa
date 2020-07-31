@@ -8,27 +8,27 @@ class Tarefa {
 
 // const listTarefas = [];
 
-// const tarefasJson = [{
-//         'descricao': 'teste1',
-//         'status': 'A Fazer',
-//         'data': '27/07/2020'
-//     },
-//     {
-//         'descricao': 'teste2',
-//         'status': 'A Fazer',
-//         'data': '27/07/2020'
-//     },
-//     {
-//         'descricao': 'teste3',
-//         'status': 'A Fazer',
-//         'data': '27/07/2020'
-//     },
-//     {
-//         'descricao': "teste4",
-//         'status': 'A Fazer',
-//         'data': '27/07/2020'
-//     },
-// ];
+const tarefasJson = [{
+        'descricao': 'teste1',
+        'status': 'A Fazer',
+        'data': '27/07/2020'
+    },
+    {
+        'descricao': 'teste2',
+        'status': 'A Fazer',
+        'data': '27/07/2020'
+    },
+    {
+        'descricao': 'teste3',
+        'status': 'A Fazer',
+        'data': '27/07/2020'
+    },
+    {
+        'descricao': "teste4",
+        'status': 'A Fazer',
+        'data': '27/07/2020'
+    },
+];
 
 
 // /**
@@ -48,6 +48,11 @@ class Tarefa {
 //     return listTarefas;
 // }
 
+/** Valida o modelo e retorna o Objeto de resposta (Boolean e Msgs de erro)
+ * @returns {{valid: Boolean, message: String}} valid
+ * 
+ * @param {Tarefa} tarefa 
+ */
 const validateModelTarefa = (tarefa) => {
     let msg = [];
     let bool = true;
