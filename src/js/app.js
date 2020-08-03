@@ -21,7 +21,7 @@ var renderTable = tarefas => {
     tb = document.createElement("tbody");
     tb.setAttribute("id", "tbody");
 
-    if (tarefas.length > 1) {
+    if (tarefas.length >= 1) {
         tarefas.forEach(tarefa => {
             tr = tableRow(tarefa);
             tb.append(tr);
@@ -43,8 +43,6 @@ var renderTable = tarefas => {
  * @version 2.1.0
  */
 const addTask = (targetTableBody, tarefa) => {
-    debugger;
-
     let validation = validateModelTarefa(tarefa);
 
     if (!validation.valid) {

@@ -15,8 +15,6 @@ let StartDB = async() => {
         listaTarefas.push(novaTarefa);
     });
 
-    console.log(listaTarefas);
-
     request.onerror = event =>
         console.log("Erro ao abrir o banco de dados", event);
 
@@ -27,8 +25,6 @@ let StartDB = async() => {
             keyPath: "id",
             autoIncrement: true
         });
-
-        var tabela = objectStore.getAll();
     };
 
     request.onsuccess = event => {
@@ -38,10 +34,14 @@ let StartDB = async() => {
         //Transaction
         var tarefasObjectStoreTransaction = db.transaction(tableName, "readwrite");
         var store = tarefasObjectStoreTransaction.objectStore(tableName);
-
-        listaTarefas.forEach(tarefa => {
-            store.add(tarefa);
-        });
+        store.getAll().onsuccess = e => {
+            lista = e.target.result;
+            if (lista.length === 0) {
+                listaTarefas.forEach(tarefa => {
+                    store.add(tarefa);
+                });
+            }
+        };
     };
 };
 
@@ -190,6 +190,8 @@ const removeTarefaById = async id => {
 /**
  * Retorna a abertura do IndexedDB.
  */
+
+StartDB();
 const setUpDb = async() => {
     return window.indexedDB.open(dbName, 1);
 };

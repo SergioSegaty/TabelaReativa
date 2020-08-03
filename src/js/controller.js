@@ -31,7 +31,6 @@ const updateTable = async(id, novaTarefa) => {
  * @param {Function} callBack
  */
 const addToTable = async() => {
-    debugger;
     let inputDesc = document.getElementById("inputDesc").value;
     let inputStatus = document.getElementById("inputStatus").value;
     let inputData = document.getElementById("inputData").value;
