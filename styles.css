@@ -4,7 +4,7 @@
     overflow-x: hidden;
 }
 
-.main {
+#main {
     height: 100vh;
     width: 100%;
     display: flex;
@@ -24,6 +24,14 @@ header {
     align-items: center;
     color: #e0e0e0;
     margin-bottom: 25px;
+}
+
+thead tr {
+    height: 50px;
+    border-radius: 3px;
+    color: white;
+    background-color: #5f5f5f;
+    font-size: 1.1rem;
 }
 
 header div {
@@ -66,6 +74,10 @@ table {
     min-width: 500px;
 }
 
+table td {
+    border: 1px solid black;
+}
+
 table input[type=text] {
     text-align: center;
 }
@@ -76,7 +88,6 @@ tfoot td {
 
 td,
 th {
-    border: 1px solid black;
     box-sizing: border-box;
 }
 
@@ -96,6 +107,7 @@ th {
 
 .btn-danger {
     background-color: #d31515;
+    color: white;
 }
 
 .btn-danger:hover {
@@ -103,7 +115,8 @@ th {
 }
 
 .btn-primmary {
-    background-color: #09c240
+    background-color: #09c240;
+    color: white;
 }
 
 .btn-primmary:hover {
@@ -111,7 +124,7 @@ th {
 }
 
 @media(min-width: 700px) {
-    .main {
+    #main {
         justify-content: flex-start;
         align-items: center;
     }
